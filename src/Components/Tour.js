@@ -21,6 +21,8 @@ const Img = styled.img`
 const InfoContainer = styled.div`
     width: 100%;
     padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
 `;
 
 const TitleContainer = styled.div`
@@ -41,7 +43,24 @@ const Info = styled.p`
     margin: 20px 0;
 `;
 
-const ReadMoreBtn = styled.button``;
+const ReadMoreBtn = styled.button`
+    border: none;
+    outline: none;
+    color: #49a6e9;
+    font-size: 1rem;
+    cursor: pointer;
+`;
+
+const Btn = styled.button`
+    margin: auto;
+    padding: 5px 35px;
+    font-size: 1rem;
+    border: 1px solid #bb2525;
+    color: #bb2525;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: white;
+`;
 
 const Tour = ({ data, removeTours }) => {
     const { image, name, info, price, id } = data;
@@ -64,16 +83,16 @@ const Tour = ({ data, removeTours }) => {
                     <Info>
                         {readMore ? info : `${info.slice(0, 200)}...`}
                         <ReadMoreBtn onClick={toggle}>
-                            {readMore ? "read more" : "read less"}
+                            {readMore ? "  Read less" : "  Read more"}
                         </ReadMoreBtn>
                     </Info>
-                    <button
+                    <Btn
                         onClick={() => {
                             removeTours(id);
                         }}
                     >
-                        remove
-                    </button>
+                        Not Interested
+                    </Btn>
                 </InfoContainer>
             </TourContainer>
         </>
